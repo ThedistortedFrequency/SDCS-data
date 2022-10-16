@@ -75,6 +75,8 @@ class GetCom extends StatelessWidget {
               '\n'
               'Email:  ${data['Email']}'
               '\n'
+              'Phone Number:  ${data['Phone Number']}'
+              '\n'
               'Address:  ${data['Address']}');
         }
         return const Text('loading..');

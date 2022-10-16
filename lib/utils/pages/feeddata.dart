@@ -72,7 +72,9 @@ class Getfeed extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          return Text('Feedback Details:  ${data['feedback details']}');
+          return Text('Feedback:  ${data['feedback details']}'
+              '\n'
+              'Email:  ${data['Email Address']}');
         }
         return const Text('loading..');
       },
