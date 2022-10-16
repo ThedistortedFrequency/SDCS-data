@@ -14,11 +14,11 @@ class GetuserName extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          return Text('  ${data['Pole Number']}'
+          return Text('Pole Number:  ${data['Pole Number']}'
               '\n'
-              ' ${data['Pole Address']}'
+              'Pole Address: ${data['Pole Address']}'
               '\n'
-              ' ${data['Problem description']}');
+              'Problem Description: ${data['Problem description']}');
         }
         return const Text('loading..');
       },

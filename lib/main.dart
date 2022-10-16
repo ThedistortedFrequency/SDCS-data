@@ -2,6 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sdcs_data/complaint_details.dart';
+import 'package:sdcs_data/utils/pages/electrification_data.dart';
+import 'package:sdcs_data/utils/pages/feeddata.dart';
+import 'package:sdcs_data/utils/pages/home.dart';
+import 'package:sdcs_data/utils/pages/userdata.dart';
+import 'package:sdcs_data/utils/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +22,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           primarySwatch: Colors.indigo, textTheme: GoogleFonts.latoTextTheme()),
-      home: const CompDetail(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        "/": (context) => const HomePage(),
+        Routes.complainRoute: (context) => const CompDetail(),
+        Routes.electrificationRoute: (context) => const Electdata(),
+        Routes.feedbackRoute: (context) => const FeedData(),
+        Routes.userdetailRoute: (context) => const UserData(),
+        Routes.homeRoute: (context) => const HomePage()
+      },
     );
   }
 }
