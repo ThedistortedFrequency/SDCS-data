@@ -11,7 +11,11 @@ class FeedData extends StatefulWidget {
 class _FeedDataState extends State<FeedData> {
   List<String> docIds = [];
   Future getdocIds() async {
-    await FirebaseFirestore.instance.collection("Feedback").get().then(
+    await FirebaseFirestore.instance
+        .collection("Feedback")
+        .orderBy("timestamp", descending: true)
+        .get()
+        .then(
           (snapshot) => snapshot.docs.forEach(
             (document) {
               print(document.reference);

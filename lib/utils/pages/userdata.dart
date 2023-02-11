@@ -11,7 +11,11 @@ class UserData extends StatefulWidget {
 class _UserDataState extends State<UserData> {
   List<String> docIds = [];
   Future getdocIds() async {
-    await FirebaseFirestore.instance.collection("users").get().then(
+    await FirebaseFirestore.instance
+        .collection("users")
+        .orderBy("timestamp", descending: true)
+        .get()
+        .then(
           (snapshot) => snapshot.docs.forEach(
             (document) {
               print(document.reference);

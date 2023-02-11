@@ -14,7 +14,11 @@ class CompDetail extends StatefulWidget {
 class _CompDetailState extends State<CompDetail> {
   List<String> docIds = [];
   Future getdocIds() async {
-    await FirebaseFirestore.instance.collection("Complaints").get().then(
+    await FirebaseFirestore.instance
+        .collection("Complaints")
+        .orderBy("timestamp", descending: true)
+        .get()
+        .then(
           (snapshot) => snapshot.docs.forEach(
             (document) {
               print(document.reference);

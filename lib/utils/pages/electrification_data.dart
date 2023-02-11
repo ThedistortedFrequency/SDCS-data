@@ -11,7 +11,11 @@ class Electdata extends StatefulWidget {
 class _ElectdataState extends State<Electdata> {
   List<String> docIds = [];
   Future getdocIds() async {
-    await FirebaseFirestore.instance.collection("Electrification").get().then(
+    await FirebaseFirestore.instance
+        .collection("Electrification")
+        .orderBy("timestamp", descending: true)
+        .get()
+        .then(
           (snapshot) => snapshot.docs.forEach(
             (document) {
               print(document.reference);
