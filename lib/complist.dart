@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class GetuserName extends StatelessWidget {
   final String documentId;
-  GetuserName({required this.documentId});
+  const GetuserName({super.key, required this.documentId});
   @override
   Widget build(BuildContext context) {
     CollectionReference Complaints =
